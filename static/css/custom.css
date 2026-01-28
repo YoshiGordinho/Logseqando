@@ -1,0 +1,765 @@
+/* ==========================================================================
+   1. FONTS & TYPOGRAPHY
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+  --ls-font-family: "Atkinson Hyperlegible", sans-serif;
+  --ls-font-code-family: "JetBrains Mono", "Fira Code", monospace;
+}
+
+html, 
+body {
+  font-family: "Atkinson Hyperlegible", var(--ls-font-family);
+  -webkit-font-smoothing: antialiased;
+}
+
+.ls-block {
+  line-height: 1.7 !important;
+}
+
+.bullet-container {
+  margin-top: 5px !important;
+}
+
+/* ==========================================================================
+   REMOVE SCROLLBAR FROM SIDEBARS ONLY
+   ========================================================================== */
+
+/* Remove scrollbar from left sidebar */
+#left-sidebar,
+#left-sidebar *,
+.left-sidebar-inner,
+.left-sidebar-inner * {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+#left-sidebar::-webkit-scrollbar,
+#left-sidebar *::-webkit-scrollbar,
+.left-sidebar-inner::-webkit-scrollbar,
+.left-sidebar-inner *::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Remove scrollbar from right sidebar */
+#right-sidebar,
+#right-sidebar *,
+.right-sidebar-inner,
+.right-sidebar-inner * {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+#right-sidebar::-webkit-scrollbar,
+#right-sidebar *::-webkit-scrollbar,
+.right-sidebar-inner::-webkit-scrollbar,
+.right-sidebar-inner *::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+
+/* ==========================================================================
+   2. COLOR PALETTE (ORIGINAL D-ELYSIUM)
+   ========================================================================== */
+
+:root {
+  --d-elysium-cl-primary: #42a5f5;
+  --d-elysium-cl-primary-hsl: 207 90% 61%;
+  --d-elysium-cl-secondary: #ba68c8;
+  --d-elysium-cl-secondary-hsl: 291 47% 60%;
+  --d-elysium-cl-info: #03a9f4;
+  --d-elysium-cl-info-hsl: 199 98% 48%;
+  --d-elysium-cl-error: #ef5350;
+  --d-elysium-cl-error-hsl: 1 83% 63%;
+  --d-elysium-cl-warning: #ff9800;
+  --d-elysium-cl-warning-hsl: 36 100% 50%;
+  --d-elysium-cl-success: #4caf50;
+  --d-elysium-cl-success-hsl: 122 39% 49%;
+  --d-elysium-cl-grey-50: #f9fafb;
+  --d-elysium-cl-grey-50-hsl: 210 20% 98%;
+  --d-elysium-cl-grey-100: #f3f4f6;
+  --d-elysium-cl-grey-100-hsl: 220 14% 96%;
+  --d-elysium-cl-grey-200: #e5e7eb;
+  --d-elysium-cl-grey-200-hsl: 220 13% 91%;
+  --d-elysium-cl-grey-300: #d1d5db;
+  --d-elysium-cl-grey-300-hsl: 216 12% 84%;
+  --d-elysium-cl-grey-400: #9ca3af;
+  --d-elysium-cl-grey-400-hsl: 218 11% 65%;
+  --d-elysium-cl-grey-500: #6b7280;
+  --d-elysium-cl-grey-500-hsl: 220 9% 46%;
+  --d-elysium-cl-grey-600: #4b5563;
+  --d-elysium-cl-grey-600-hsl: 215 14% 34%;
+  --d-elysium-cl-grey-700: #374151;
+  --d-elysium-cl-grey-700-hsl: 217 19% 27%;
+  --d-elysium-cl-grey-800: #1f2937;
+  --d-elysium-cl-grey-800-hsl: 215 28% 17%;
+  --d-elysium-cl-grey-900: #111827;
+  --d-elysium-cl-grey-900-hsl: 221 39% 11%;
+  --d-elysium-cl-grey-950: #030712;
+  --d-elysium-cl-grey-950-hsl: 224 71% 4%;
+  --d-elysium-cl-green: #7BC74D;
+  --d-elysium-cl-green-hsl: 97 52% 54%;
+  --d-elysium-cl-violet: #B8B8F3;
+  --d-elysium-cl-violet-hsl: 240 71% 84%;
+  --d-elysium-cl-red: #EE6352;
+  --d-elysium-cl-red-hsl: 7 82% 63%;
+}
+
+
+/* ==========================================================================
+   3. INTERFACE & ANIMATIONS (ZEN MODE / SIDEBARS)
+   ========================================================================== */
+
+/* Top Bar (Zen Mode) */
+#head {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#head:hover {
+  opacity: 1;
+}
+
+/* Smooth Sidebars */
+#left-sidebar,
+#right-sidebar {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              width 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.4s ease-in-out !important;
+}
+
+/* Remove "+ Create" Button from Sidebar */
+.left-sidebar-inner .create,
+.left-sidebar-inner .new-page {
+  display: none !important;
+}
+
+/* ==========================================================================
+   4. DARK THEME - Elysium
+   ========================================================================== */
+
+.dark-theme,
+html[data-theme=dark][data-color=logseq] {
+  --border: var(--d-elysium-cl-green-hsl)/.55;
+  --ls-primary-background-color: hsl(var(--d-elysium-cl-grey-800-hsl));
+  --ls-secondary-background-color: hsl(var(--d-elysium-cl-grey-600-hsl));
+  --ls-tertiary-background-color: hsl(var(--d-elysium-cl-grey-700-hsl));
+  --ls-quaternary-background-color: hsl(var(--d-elysium-cl-grey-700-hsl));
+  --ls-block-properties-background-color: hsl(var(--d-elysium-cl-grey-700-hsl)/.5);
+  --ls-block-ref-link-text-color: hsl(var(--d-elysium-cl-green-hsl)/.85);
+  --ls-border-color: hsl(var(--d-elysium-cl-grey-700-hsl));
+  --ls-guideline-color: hsl(var(--d-elysium-cl-grey-700-hsl));
+  --ls-menu-hover-color: hsl(var(--d-elysium-cl-grey-700-hsl));
+  --ls-primary-text-color: #ffffff;
+  --ls-secondary-text-color: #ffffff;
+  --ls-title-text-color: hsl(var(--d-elysium-cl-green-hsl)/.75);
+  --ls-link-text-color: hsl(var(--d-elysium-cl-primary-hsl));
+  --ls-link-text-hover-color: hsl(var(--d-elysium-cl-red-hsl));
+  --ls-link-ref-text-color: hsl(var(--d-elysium-cl-warning-hsl)/.85);
+  --ls-tag-text-color: hsl(var(--d-elysium-cl-green-hsl));
+  --ls-block-bullet-color: hsl(var(--d-elysium-cl-green-hsl)/.85);
+  --ls-block-bullet-border-color: hsl(var(--d-elysium-cl-grey-600-hsl));
+  --ls-block-highlight-color: hsl(var(--d-elysium-cl-grey-700-hsl)/.2);
+  --ls-selection-background-color: hsl(var(--d-elysium-cl-grey-700-hsl));
+  --ls-page-checkbox-color: hsl(var(--d-elysium-cl-grey-600-hsl));
+  --ls-page-blockquote-color: hsl(var(--d-elysium-cl-grey-300-hsl));
+  --ls-page-blockquote-bg-color: hsl(var(--d-elysium-cl-grey-600-hsl)/.5);
+  --ls-page-blockquote-border-color: hsl(var(--d-elysium-cl-grey-600-hsl)/.9);
+  --ls-page-mark-color: hsl(var(--d-elysium-cl-grey-800-hsl));
+  --ls-page-mark-bg-color: hsl(var(--d-elysium-cl-green-hsl)/.9);
+  --ls-page-inline-code-color: hsl(var(--d-elysium-cl-violet-hsl));
+  --ls-page-inline-code-bg-color: hsl(var(--d-elysium-cl-grey-900-hsl)/.55);
+  --ls-scrollbar-foreground-color: hsl(var(--d-elysium-cl-green-hsl)/.5);
+  --ls-scrollbar-background-color: hsl(var(--d-elysium-cl-grey-900-hsl)/.8);
+  --ls-scrollbar-thumb-hover-color: hsl(var(--d-elysium-cl-green-hsl)/.85);
+  --ls-icon-color: hsl(var(--d-elysium-cl-grey-200-hsl));
+  --color-level-3: hsl(var(--d-elysium-cl-grey-800-hsl)/.5);
+  --secondary: 221 39% 11%;
+  --ls-create-button-color-focus: hsl(var(--d-elysium-cl-grey-950-hsl));
+  --ls-create-button-color-sm-focus: hsl(var(--d-elysium-cl-grey-950-hsl));
+  --tw-ring-color: hsl(var(--d-elysium-cl-green-hsl)/.80);
+  --lx-popover-bg: hsl(var(--d-elysium-cl-grey-950-hsl));
+  --lx-gray-06: hsl(var(--d-elysium-cl-grey-800-hsl));
+  --ls-table-tr-even-background-color: hsl(var(--d-elysium-cl-grey-700-hsl));
+  --popover: var(--d-elysium-cl-grey-900-hsl)/.7;
+  --destructive: var(--d-elysium-cl-error-hsl);
+  --lx-accent-01: hsl(var(--d-elysium-cl-green-hsl)/.6);
+  --lx-accent-02: hsl(var(--d-elysium-cl-green-hsl)/.4);
+}
+
+.dark-theme b, 
+.dark-theme strong { color: #72B74A; }
+.dark-theme i, 
+.dark-theme em { color: #DB995A; }
+
+/* ==========================================================================
+   5. LIGHT THEME - Medere
+   ========================================================================== */
+
+.light-theme,
+html[data-theme=light] {
+  /* Main Backgrounds */
+  --ls-primary-background-color: #FCFDF6;
+  --ls-secondary-background-color: #FCFDF6;
+  --ls-tertiary-background-color: #FCFDF6;
+  --ls-quaternary-background-color: #FCFDF6;
+  
+  /* Sidebar and Menus */
+  --ls-left-sidebar-bg-color: #FCFDF6;
+  --ls-right-sidebar-bg-color: #FCFDF6;
+  --ls-menu-hover-color: #F9FBEE;
+  --ls-selection-background-color: #EEF4CD;
+  --lx-popover-bg: #FCFDF6;
+  
+  /* Texts and Titles */
+  --ls-primary-text-color: #000000;
+  --ls-secondary-text-color: #333333;
+  --ls-title-text-color: #036F1E;
+  --ls-tag-text-color: #2E7D32;
+  --ls-page-blockquote-bg-color: #F9FBEE;
+  --ls-page-blockquote-border-color: #F9FBEE;
+  
+  /* Change the color of the quote block vertical line */
+blockquote {
+    border-left: 4px solid #2E7D32; /* Change hex code to your preferred color */
+    border-left-color: #2E7D32;    /* Some themes require this specific property */
+    opacity: 1;                    /* Ensures the color is vibrant */
+}
+  
+  /* Accent and Links */
+  --ls-link-text-color: #2E7D32; 
+  --ls-link-text-hover-color: #036F1E;
+  --ls-link-ref-text-color: #2E7D32;
+  --ls-icon-color: #036F1E;
+  
+  /* Structure and Blocks */
+  --ls-block-bullet-color: #036F1E;
+  --ls-block-bullet-border-color: #d1d4c9;
+  --ls-block-highlight-color: rgba(3, 111, 30, 0.08);
+  --ls-border-color: #e2e4d8;
+  --ls-guideline-color: #e2e4d8;
+  
+  /* Highlights (Highlighter) */
+  --ls-page-mark-color: #000000;
+  --ls-page-mark-bg-color: #FDEB94;
+  
+}
+
+/* --- Component Overrides (Light Theme) --- */
+
+/* Force unified background and Sidebar separator line */
+.light-theme #main-container,
+.light-theme #main-content-container,
+.light-theme #left-sidebar,
+.light-theme #right-sidebar,
+.light-theme .left-sidebar-inner,
+.light-theme .right-sidebar-inner {
+  background-color: #FCFDF6 !important;
+}
+
+.light-theme .left-sidebar-inner {
+  /* O 0.3 no final representa 30% de opacidade */
+  border-right: 0.5px solid rgba(59, 67, 15, 0.3) !important; 
+}
+
+/* ==========================================================================
+   SIDEBAR HOVER - FIXED v3 (Light Theme)
+   ========================================================================== */
+
+/* Remove qualquer fundo de hover das seções */
+.light-theme .left-sidebar-inner .favorites,
+.light-theme .left-sidebar-inner .recent,
+.light-theme .left-sidebar-inner > div {
+  background-color: transparent !important;
+}
+
+/* Estilo base dos itens - SEM fundo */
+.light-theme .left-sidebar-inner a,
+.light-theme .left-sidebar-inner .nav-content-item a,
+.light-theme #left-sidebar a.item {
+  background-color: transparent !important;
+  background: transparent !important;
+  transition: background-color 0.2s ease !important;
+}
+
+/* Hover APENAS nos links/itens individuais */
+.light-theme .left-sidebar-inner a:hover,
+.light-theme .left-sidebar-inner .nav-content-item a:hover,
+.light-theme #left-sidebar a.item:hover {
+  background-color: #F9FBEE !important;
+  background: #F9FBEE !important;
+  border-radius: 4px !important;
+}
+
+/* Item ativo/selecionado */
+.light-theme .left-sidebar-inner a.active,
+.light-theme .left-sidebar-inner .nav-content-item a[data-active="true"],
+.light-theme #left-sidebar a.item.active {
+  background-color: #F9FBEE !important;
+  background: #F9FBEE !important;
+  font-weight: bold !important;
+  border-radius: 4px !important;
+  color: #036F1E !important;
+}
+
+
+/* Context Menus and Dropdowns */
+.light-theme .menu-links-wrapper,
+.light-theme .dropdown-wrapper,
+.light-theme .ui__modal-panel,
+.light-theme .ls-dropdown,
+.light-theme .tippy-box {
+  background-color: var(--lx-popover-bg) !important;
+  border: 1px solid var(--ls-border-color) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Hover on page links [[ ]] */
+.light-theme a.page-ref:hover {
+  background-color: rgba(46, 125, 50, 0.1) !important; 
+  color: #036F1E !important;
+  padding: 1px 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Specific Typography */
+.light-theme b, 
+.light-theme strong { color: #2E7D32; font-weight: 700; }
+.light-theme i, 
+.light-theme em { color: #DF742A; font-style: italic; }
+
+.light-theme .logseq-tab[data-active="true"] {
+  background-color: var(--ls-primary-background-color) !important;
+  border-bottom: 2px solid #036F1E !important;
+}
+
+/* --- Medical Cross for MAIN CONTENT ONLY --- */
+
+/* Align title and cross vertically */
+#main-content-container .page-title, 
+#main-content-container .journal-item .title h1 {
+  display: flex !important;
+  align-items: center;
+}
+
+/* Create the cross */
+#main-content-container .page-title::before, 
+#main-content-container .journal-item .title h1::before {
+  content: "\271A"; /* Heavy Greek Cross (✚) */
+  display: inline-block;
+  margin-right: 12px;
+  font-size: 0.8em;
+  line-height: 1;
+}
+
+/* --- LIGHT MODE (#2e7d32) --- */
+html[data-theme='light'] #main-content-container .page-title::before,
+html[data-theme='light'] #main-content-container .journal-item .title h1::before {
+  color: #2e7d32;
+}
+
+/* --- DARK MODE (#72B74A) --- */
+html[data-theme='dark'] #main-content-container .page-title::before,
+html[data-theme='dark'] #main-content-container .journal-item .title h1::before {
+  color: #72B74A;
+}
+
+/*==========================================================================
+   DOTTED BACKGROUND - Subtle Notebook Style
+  ==========================================================================
+
+.light-theme #main-content-container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(46, 125, 50, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: 0 0;
+}
+
+/* Garante que o conteúdo fique acima dos pontinhos
+.light-theme #main-content-container > * {
+  position: relative;
+  z-index: 1;
+}
+*/
+
+/* ==========================================================================
+   ALIAS BACKGROUND COLOR (Light Theme)
+   ========================================================================== */
+
+.light-theme .block-properties,
+.light-theme .pre-block,
+.light-theme .ls-block .block-properties {
+  background-color: #F9FBEE !important;
+  border: 1px solid #e2e4d8 !important;
+  border-radius: 10px !important;
+  padding: 3px !important;
+}
+
+/* Específico para alias */
+.light-theme .block-properties .kv .kw,
+.light-theme .block-properties .kv .val {
+  background-color: transparent !important;
+}
+
+/* Container do alias */
+.light-theme .block-properties .kv {
+  background-color: #F9FBEE !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+}
+
+/* Cor do texto "alias::" */
+.light-theme .block-properties .kv .kw {
+  color: #2E7D32 !important;
+  font-weight: 600 !important;
+}
+
+/* ==========================================================================
+   TODO CHECKBOX - Round with Green Background (SMALLER)
+   ========================================================================== */
+
+.light-theme .form-checkbox {
+  border-radius: 50% !important; /* Deixa redondo */
+  background-color: #F9FBEE !important;
+  border: 2px solid #2E7D32 !important;
+  width: 15px !important; /* Diminuído de 18px */
+  height: 15px !important; /* Diminuído de 18px */
+}
+
+/* Checkbox marcado (DONE) */
+.light-theme .form-checkbox:checked {
+  background-color: #2E7D32 !important;
+  border-color: #2E7D32 !important;
+}
+
+/* Hover no checkbox */
+.light-theme .form-checkbox:hover {
+  background-color: #EEF4CD !important;
+  border-color: #036F1E !important;
+}
+  
+  /* ==========================================================================
+   SIDEBAR SELECTED ITEM - Raised Button Style (Light Theme)
+   ========================================================================== */
+
+/* Item ativo/selecionado com efeito de botão elevado */
+.light-theme .left-sidebar-inner a.active,
+.light-theme .left-sidebar-inner .nav-content-item a[data-active="true"],
+.light-theme #left-sidebar a.item.active,
+.light-theme .left-sidebar-inner .nav-content-item.active a {
+  background-color: #F9FBEE !important;
+  background: #F9FBEE !important;
+  font-weight: bold !important;
+  border-radius: 6px !important;
+  color: #036F1E !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 
+              0 1px 2px rgba(0, 0, 0, 0.08),
+              inset 0 -1px 0 rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid rgba(46, 125, 50, 0.15) !important;
+  padding: 4px 8px !important;
+}
+
+/* Mantém o efeito no hover do item selecionado */
+.light-theme .left-sidebar-inner a.active:hover,
+.light-theme .left-sidebar-inner .nav-content-item a[data-active="true"]:hover {
+  background-color: #F9FBEE !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 
+              0 1px 2px rgba(0, 0, 0, 0.08),
+              inset 0 -1px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Hover nos itens NÃO selecionados - mais suave */
+.light-theme .left-sidebar-inner a:hover:not(.active),
+.light-theme .left-sidebar-inner .nav-content-item a:hover:not([data-active="true"]),
+.light-theme #left-sidebar a.item:hover:not(.active) {
+  background-color: #F9FBEE!important;
+  background: #F9FBEE!important;
+  border-radius: 6px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06) !important;
+}
+/* ==========================================================================
+   CALLOUTS / ADMONITIONS - Inspired by Primary Theme
+   ========================================================================== */
+
+/* Callout base styling */
+.admonitionblock,
+.ls-block[data-refs-self*='"note"'],
+.ls-block[data-refs-self*='"warning"'],
+.ls-block[data-refs-self*='"tip"'],
+.ls-block[data-refs-self*='"important"'],
+.ls-block[data-refs-self*='"caution"'] {
+  border-radius: 8px;
+  padding: 16px;
+  margin: 12px 0;
+  border-left: 4px solid;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+/* Light theme callouts */
+.light-theme .ls-block[data-refs-self*='"note"'] {
+  background: linear-gradient(135deg, rgba(46, 125, 50, 0.08) 0%, rgba(46, 125, 50, 0.03) 100%);
+  border-left-color: #2E7D32;
+  box-shadow: 0 1px 3px rgba(46, 125, 50, 0.1);
+}
+
+.light-theme .ls-block[data-refs-self*='"warning"'] {
+  background: linear-gradient(135deg, rgba(255, 152, 0, 0.08) 0%, rgba(255, 152, 0, 0.03) 100%);
+  border-left-color: #ff9800;
+  box-shadow: 0 1px 3px rgba(255, 152, 0, 0.1);
+}
+
+.light-theme .ls-block[data-refs-self*='"tip"'] {
+  background: linear-gradient(135deg, rgba(3, 169, 244, 0.08) 0%, rgba(3, 169, 244, 0.03) 100%);
+  border-left-color: #03a9f4;
+  box-shadow: 0 1px 3px rgba(3, 169, 244, 0.1);
+}
+
+.light-theme .ls-block[data-refs-self*='"important"'] {
+  background: linear-gradient(135deg, rgba(239, 83, 80, 0.08) 0%, rgba(239, 83, 80, 0.03) 100%);
+  border-left-color: #ef5350;
+  box-shadow: 0 1px 3px rgba(239, 83, 80, 0.1);
+}
+
+/* Dark theme callouts */
+.dark-theme .ls-block[data-refs-self*='"note"'] {
+  background: linear-gradient(135deg, rgba(114, 183, 74, 0.15) 0%, rgba(114, 183, 74, 0.05) 100%);
+  border-left-color: #72B74A;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .ls-block[data-refs-self*='"warning"'] {
+  background: linear-gradient(135deg, rgba(255, 152, 0, 0.15) 0%, rgba(255, 152, 0, 0.05) 100%);
+  border-left-color: #ff9800;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .ls-block[data-refs-self*='"tip"'] {
+  background: linear-gradient(135deg, rgba(66, 165, 245, 0.15) 0%, rgba(66, 165, 245, 0.05) 100%);
+  border-left-color: #42a5f5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effect */
+.ls-block[data-refs-self*='"note"']:hover,
+.ls-block[data-refs-self*='"warning"']:hover,
+.ls-block[data-refs-self*='"tip"']:hover,
+.ls-block[data-refs-self*='"important"']:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   SCROLLBAR STYLING - Gordinha e Verde
+   ========================================================================== */
+
+/* 1. Aumenta a largura total da área da barra */
+.light-theme ::-webkit-scrollbar {
+  width: 18px;  /* De 15px para 18px para ficar mais gordinha */
+  height: 18px;
+}
+
+/* 2. O trilho (fundo) */
+.light-theme ::-webkit-scrollbar-track {
+  background: rgba(46, 125, 50, 0.05);
+  border-radius: 8px;
+}
+
+/* 3. A barrinha (Thumb) em estado IDLE (repouso) */
+.light-theme ::-webkit-scrollbar-thumb {
+  background-color: #2E7D32; /* O verde accent que você quer */
+  border-radius: 10px;
+  
+  /* O segredo da espessura está aqui: 
+     Se o border for grande, a barra parece fina. 
+     Diminuímos para 1px ou 2px para ela ocupar quase todo o espaço. */
+  border: 4px solid #2E7D32; 
+}
+
+/* 4. Quando passa o mouse (Hover) */
+.light-theme ::-webkit-scrollbar-thumb:hover {
+  background-color: #1B5E20; /* Um verde um pouco mais escuro ao interagir */
+  border: 1px solid #FCFDF6; /* Diminui a borda no hover para ela "crescer" visualmente */
+}
+
+
+/* Animação sutil no bullet ao colapsar/expandir */
+.block-control {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.15s ease-out;
+}
+
+.ls-block.collapsed > .block-control {
+  opacity: 0.6;
+}
+
+.ls-block:not(.collapsed) > .block-control {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   6. BLOCK, CARD & IMAGE STYLING
+   ========================================================================== */
+
+div[data-refs-self='"card"'],
+.ls-block[data-refs-self*='"card"'],
+.ls-block[data-refs*="card"] {
+  box-shadow: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.ls-block[data-refs*="card"] > .block-children-container {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.ls-block[data-refs*="card"]::before {
+  display: none !important;
+}
+
+img {
+  height: auto !important;
+  object-fit: contain;
+}
+
+/* ==========================================================================
+   PLUGIN: LOGSEQ TABS - Redesign Minimalista e Profissional
+   ========================================================================== */
+
+#logseq-tabs-container {
+  padding: 0;
+  background-color: transparent;
+  border-bottom: 1px solid var(--ls-border-color);
+  margin-bottom: 16px;
+}
+
+/* Tabs em estado normal */
+.logseq-tab {
+  border: none !important;
+  background-color: transparent !important;
+  margin-right: 0 !important;
+  border-radius: 0 !important;
+  padding: 10px 16px !important;
+  transition: all 0.2s ease-in-out;
+  opacity: 0.6;
+  box-shadow: none !important;
+  color: var(--ls-primary-text-color) !important;
+  font-size: 0.95em;
+  font-weight: 400;
+  border-bottom: 2px solid transparent !important;
+  position: relative;
+}
+
+/* Hover sutil */
+.logseq-tab:hover {
+  opacity: 0.85;
+  background-color: rgba(46, 125, 50, 0.03) !important;
+  transform: none;
+}
+
+/* Tab ativa - linha verde embaixo */
+.logseq-tab[data-active="true"] {
+  background-color: transparent !important;
+  opacity: 1;
+  font-weight: 500;
+  border-bottom: 2px solid #2E7D32 !important;
+  box-shadow: none !important;
+  color: #2E7D32 !important;
+}
+
+/* Light theme específico */
+.light-theme .logseq-tab[data-active="true"] {
+  color: #2E7D32 !important;
+  border-bottom-color: #2E7D32 !important;
+}
+
+/* Dark theme específico */
+.dark-theme .logseq-tab[data-active="true"] {
+  color: #72B74A !important;
+  border-bottom-color: #72B74A !important;
+}
+
+/* Prefix (J, P, etc.) - mais discreto */
+.logseq-tab .prefix {
+  font-size: 0.75em;
+  opacity: 0.5;
+  margin-right: 6px;
+  font-weight: 600;
+  border: 1px solid var(--ls-border-color);
+  border-radius: 3px;
+  padding: 1px 4px;
+  background-color: transparent;
+}
+
+.logseq-tab[data-active="true"] .prefix {
+  opacity: 0.7;
+  border-color: currentColor;
+}
+
+/* Botão de fechar - minimalista */
+.logseq-tab .close-inner {
+  margin-left: 10px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  font-size: 0.9em;
+}
+
+.logseq-tab:hover .close-inner {
+  opacity: 0.5;
+}
+
+.logseq-tab .close-inner:hover {
+  opacity: 1 !important;
+  color: var(--d-elysium-cl-red);
+}
+
+/* Remove sombras e efeitos desnecessários */
+.logseq-tab:focus,
+.logseq-tab:active {
+  outline: none;
+  box-shadow: none !important;
+}
+
+/* Remove os prefixos (J), (P), etc. */
+html .logseq-tab .prefix {
+  display: none !important;
+}
+
+/* X completamente invisível por padrão */
+html .logseq-tab .close-inner {
+  margin-left: 8px !important;
+  opacity: 0 !important;
+  visibility: hidden !important; /* Garante que suma completamente */
+  transition: opacity 0.2s ease, visibility 0.2s ease !important;
+  font-size: 0.75em !important;
+  transform: scale(0.85) !important;
+}
+
+/* X aparece apenas no hover da tab */
+html .logseq-tab:hover .close-inner {
+  opacity: 0.4 !important;
+  visibility: visible !important; /* Torna visível no hover */
+}
+
+/* X fica mais visível quando hover nele mesmo */
+html .logseq-tab .close-inner:hover {
+  opacity: 1 !important;
+  visibility: visible !important;
+  color: var(--d-elysium-cl-red) !important;
+  transform: scale(1) !important;
+}
